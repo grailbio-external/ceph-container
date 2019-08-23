@@ -65,7 +65,7 @@ function teardown {
   echo
   echo "teardown: Process $child_for_exec is terminated"
 
-  if [ "$signal_name" = "SIGTERM" ]; then
+  if [ "$signal_name" != "ERR" ]; then
     # Execute the cleanup post-script if any is declared
     declare -F sigterm_cleanup_post && sigterm_cleanup_post
   else
